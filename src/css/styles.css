@@ -17,7 +17,6 @@ body {
 
 .wrapper {
 	margin: 0 auto;
-	padding: 20px 40px;
 }
 
 header {
@@ -35,14 +34,70 @@ header {
 	margin: 0;
 }
 
-.portfolio .wrapper {
+.bottom {
+	position: absolute;
+	top: 80%;
+	left: 46vw;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	animation: bouncy 1s linear infinite;
+}
+
+.portfolio {
+	margin-bottom: 40px;
+}
+
+.portfolio .border {
 	background: var(--white);
 	box-shadow: 0 7px 15px rgba(0,0,0,.2) inset;
 	border-radius: 4px;
+	padding: 20px 40px;
+}
+
+.portfolio .box-container {
+	padding: 40px 40px;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	grid-gap: 20px;
+	justify-content: center;
+}
+
+.portfolio h1 {
+	margin-bottom: 40px;
+}
+
+.portfolio .box {
+	background: var(--white);
+	border-radius: 8px;
+	padding: 20px;
+	box-shadow: 0px 70px 40px -50px rgba(0, 0, 0, 0.2), 0px 3px 20px rgba(0, 0, 0, 0.1);
+	height: 280px;
+}
+
+.portfolio .description {
+	padding: 20px 0;
+	min-height: 100px;
+}
+
+.portfolio .button {
+	display: inline-block;
+	text-decoration: none;
+	padding: 10px 25px;
+	background: tomato;
+	border-radius: 1000px;
+	color: white;
+	text-align: center;
+	width: 70%;
+	margin: 0 auto;
+	display: block;
+}
+
+.portfolio .button:hover {
+	animation: bounce 300ms ease-in-out forwards;
 }
 
 footer {
-	/* background-color: var(--footer-bg); */
+	padding: 20px 0;
 	text-align: center;
 	font-size: 12px;
 	line-height: 16px;
@@ -71,13 +126,59 @@ footer .social a {
 	color: var(--dark-gray);
 	font-size: 16px;
 	margin-right: 5px;
-	transition: all 300ms linear;
+	transition: 300ms linear;
 }
 
 footer .social a:hover {
 	color: #1E88E5;
 }
 
+@media only screen and (max-width: 992px) {
+	.portfolio .box-container {
+		padding: 40px 0;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.portfolio .box-container {
+		display: grid;
+		grid-template-columns: 300px;
+		grid-gap: 20px;
+		justify-content: center;
+		padding: 40px 0;
+	}
+}
+
+
+@media only screen and (max-width: 320px) {
+	.portfolio .box-container {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-gap: 20px;
+		justify-content: center;
+		padding: 0;
+	}
+	.portfolio .button {
+		width: 75%;
+		font-size: 12px;
+	}
+}
+
+
+@media only screen and (min-width:576px){.wrapper{width:480px;}}
 @media only screen and (min-width:768px){.wrapper{width:720px;}}
 @media (min-width:992px){.wrapper{width:960px;}}
 @media (min-width:1200px){.wrapper{width:1140px;}}
+
+@keyframes bounce {
+	0% {transform: translate(0px, 0px);}
+	40% {transform: translate(0px, -12px);}
+	80% {transform: translate(0px, 2px);}
+	100% {transform: translate(0px, 0px);}
+}
+
+@keyframes bouncy {
+	0%{transform: translateY(0px)}
+	50%{transform: translateY(-5px)}
+	100%{transform: translateY(0px)}
+}
