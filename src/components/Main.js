@@ -4,7 +4,11 @@ export default class Main extends Component {
   render() {
     return (
       <section className="portfolio">
-        <p>It's main section</p>
+      <div className="wrapper">
+          <h1>Portfolio</h1>
+
+      </div>
+
       </section>
     )
   }
